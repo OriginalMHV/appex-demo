@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Vw7X4ny8JgSQkWHZvhAC606aC47b/pETUcEcCjU2BEq1QJOpzx01jREAP6oqK0fa01C6mAWvrn3vl7Qt4jumEA==",
+  "dgSpecHash": "wxceafGzn2tshK+xl2O/MqYrDGXfGEcqzBekAKY+2Uw3pYaMxdw3kcnvYEdSri1NKbJkAdYE+EHJbU4K6rDRsQ==",
   "success": true,
   "projectFilePath": "/Users/michaelherlandvalen/appex-demo/asp.net/asp.net.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/michaelherlandvalen/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

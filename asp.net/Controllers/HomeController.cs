@@ -1,37 +1,33 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using asp.net.Models;
+using ModelOverview.Models;
 
 namespace asp.net.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
-    {
-        _logger = logger;
-    }
-
-    public IActionResult Index()
-    {
-        return View();
-    }
-
-    public IActionResult Privacy()
-    {
-        return View();
-    }
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }
-
+    [HttpGet]
+        public ActionResult Index()
+        {
+            return View(new OverviewModel());
+        }
     public ActionResult Overview()
     {
-        return View();
+        OverviewModel overview = new OverviewModel();
+        overview.OrganizationId = 0;
+        overview.OrganizationName = "";
+        overview.OrganizationType = "";
+        overview.OrganizationSize = "";
+        overview.OrganizationPostalCode = "";
+        overview.OrganizationCity = "";
+        overview.OrganizationPhoneNumber = "";
+        overview.OrganizationEmailAddress = "";
+        overview.OrganizationDescription = "";
+        overview.OrganizationStartDate = "";
+            return Json(overview., JsonRequestBehavior.AllowGet);
     }
+
+    
     
 }

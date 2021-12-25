@@ -5,48 +5,36 @@ using System.Net;
 using System.Text;
 
   
-namespace ModelOverview.Models
+namespace asp.net.Models
 {  
-    public class getOverview {
-        private String requestURL = "https://data.brreg.no/enhetsregisteret/api/";
+    public class ModelOverview {
 
-        public String getOrganization(String OrganizationId)
-        {
-            String url = requestURL + "enheter/" + OrganizationId;
-            return url;
-        }
+        public async Task GetModelOverview() {
+            ApiHelper.InitizalizeClient();
 
-        public Object getJSONObject() {
-            Object jsonObject;
-            try
-            {
-                using (WebClient client = new WebClient())
-                {
-                    var content = client.DownloadString(url);
-                    jsonContent = JsonConvert.DeserializeObject<RootObject>(content);
+            using(HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync("enhetsregisteret/api/enheter")) {
+                if(response.IsSuccessStatusCode) {
+                    var result = await response.Content.ReadAsStringAsync();
+                    var model = JsonConvert.DeserializeObject<List<ModelOverview>>(result);
+                    Console.WriteLine(model);
+                }
+                else {
+                    Console.WriteLine(response.StatusCode);
                 }
             }
-            catch (Exception exception)
-            {
-                return "not found";
-            }
-            return jsonContent;
-        }
         }
         
-        
+    
 
-    }
-    public class OverviewModel  
-    {  
         public int OrganizationId { get; set; }  
         public string OrganizationName { get; set; }
         public string OrganizationType { get; set; } 
-        public string OrganizationSize { get; set; }   
-        public string OrganizationPostalCode { get; set; }  
+        public int OrganizationSize { get; set; }   
+        public int OrganizationPostalCode { get; set; }  
         public string OrganizationCity { get; set; }  
         public string OrganizationPhoneNumber { get; set; }  
         public string OrganizationEmailAddress { get; set; }  
         public string OrganizationDescription { get; set; }  
-        public string OrganizationStartDate { get; set; }
-    } 
+        public string OrganizationStartDate { get; set; } 
+}
+}

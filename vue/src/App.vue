@@ -1,15 +1,24 @@
+<script>
+import SearchBox from './components/search-box.vue'
+
+export default {
+  components: {SearchBox},
+  name: 'App',
+  component: {
+    SearchBox
+  }
+}
+</script>
+
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <header></header>
+      <search-box><form>
+        <input type="text" v-model="search" @keyup.enter="searchFor" placeholder="Search {org nr, name...}">
+        </form></search-box>
     <router-view/>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'App'
-}
-</script>
 
 <style>
 #app {

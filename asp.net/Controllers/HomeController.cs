@@ -6,15 +6,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
-namespace asp.net.Controllers;
+namespace asp.net.Controllers
+{
 
-using asp.net.Models;
+
 public class HomeController : Controller
 {
-    
     public ActionResult Index()
         {
-
-        return View();
+            ModelOverview model = new ModelOverview();
+            model.GetModelOverview().Wait();
+            return View(model);
         }
+}
+
 }

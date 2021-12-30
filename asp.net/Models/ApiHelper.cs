@@ -8,11 +8,10 @@ namespace asp.net.Models
         public static HttpClient ApiClient { get; set; } = new HttpClient();
         public static void InitizalizeClient() {
             ApiClient = new HttpClient();
-            ApiClient.BaseAddress = new Uri("https://data.brreg.no/enhetsregisteret/api/");
+            ApiClient.BaseAddress = new Uri("https://data.brreg.no/enhetsregisteret/api/enheter");
             ApiClient.DefaultRequestHeaders.Accept.Clear();
             ApiClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
         }
-
     }
     // 
 

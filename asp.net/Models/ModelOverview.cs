@@ -4,37 +4,37 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text;
 
-  
-namespace asp.net.Models
-{  
-    public class ModelOverview {
 
-        public async Task GetModelOverview() {
+namespace asp.net.Models
+{
+    public class ModelOverview
+    {
+        public async Task<OrginizationModel> GetModelOverview()
+        {
             ApiHelper.InitizalizeClient();
 
-            using(HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync("enhetsregisteret/api/enheter")) {
-                if(response.IsSuccessStatusCode) {
-                    var result = await response.Content.ReadAsStringAsync();
-                    var model = JsonConvert.DeserializeObject<List<ModelOverview>>(result);
-                    Console.WriteLine(model);
+            string URL = "navn=Appex";
+
+            // https://data.brreg.no/enhetsregisteret/api/enheter?size=1&navn=Appex
+            // https://data.brreg.no/enhetsregisteret/api/enheter?size=1&organisasjonsnummer=995412020
+            
+
+            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(URL))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadFromJsonAsync<OrginizationModel>();
+                    var model = JsonConvert.DeserializeObject<OrginizationModel>(result.ToString());
+                    Console.WriteLine(result);
+                    return result;
                 }
-                else {
+                else
+                {
                     Console.WriteLine(response.StatusCode);
+                    return null;
                 }
             }
         }
-        
-    
 
-        public int OrganizationId { get; set; }  
-        public string OrganizationName { get; set; }
-        public string OrganizationType { get; set; } 
-        public int OrganizationSize { get; set; }   
-        public int OrganizationPostalCode { get; set; }  
-        public string OrganizationCity { get; set; }  
-        public string OrganizationPhoneNumber { get; set; }  
-        public string OrganizationEmailAddress { get; set; }  
-        public string OrganizationDescription { get; set; }  
-        public string OrganizationStartDate { get; set; } 
-}
+    }
 }

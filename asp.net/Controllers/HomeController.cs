@@ -15,8 +15,9 @@ public class HomeController : Controller
     public ActionResult Index()
         {
             ModelOverview model = new ModelOverview();
+            ViewData["ModelOverview"] = model.GetModelOverview();
             model.GetModelOverview().Wait();
-            return View(model);
+            return View();
         }
 }
 

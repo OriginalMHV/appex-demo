@@ -14,9 +14,10 @@ public class HomeController : Controller
 {
     public ActionResult Index()
         {
-            ModelOverview model = new ModelOverview();
-            ViewData["ModelOverview"] = model.GetModelOverview();
-            model.GetModelOverview().Wait();
+            // get data from api
+            ModelOverview modelOverview = new ModelOverview();
+            var orginizationModel = modelOverview.GetModelOverview();
+            ViewData["OrginizationModel"] = orginizationModel;
             return View();
         }
 }

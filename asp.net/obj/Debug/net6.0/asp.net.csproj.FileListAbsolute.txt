@@ -26,3 +26,5 @@
 /Users/michaelherlandvalen/appex-demo/asp.net/obj/Debug/net6.0/ref/asp.net.dll
 /Users/michaelherlandvalen/appex-demo/asp.net/obj/Debug/net6.0/asp.net.pdb
 /Users/michaelherlandvalen/appex-demo/asp.net/obj/Debug/net6.0/asp.net.genruntimeconfig.cache
+/Users/michaelherlandvalen/appex-demo/asp.net/bin/Debug/net6.0/System.Net.Http.Formatting.dll
+/Users/michaelherlandvalen/appex-demo/asp.net/bin/Debug/net6.0/Newtonsoft.Json.Bson.dll

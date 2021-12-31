@@ -13,7 +13,7 @@ namespace asp.net.Models
         {
             ApiHelper.InitizalizeClient();
 
-            string URL = "navn=Appex";
+            string URL= "https://data.brreg.no/enhetsregisteret/api/enheter?size=1&navn=Appex";
 
             // https://data.brreg.no/enhetsregisteret/api/enheter?size=1&navn=Appex
             // https://data.brreg.no/enhetsregisteret/api/enheter?size=1&organisasjonsnummer=995412020
@@ -23,13 +23,17 @@ namespace asp.net.Models
             {
                 if (response.IsSuccessStatusCode)
                 {
-                    var result = await response.Content.ReadFromJsonAsync<OrginizationModel>();
-                    var model = JsonConvert.DeserializeObject<OrginizationModel>(result.ToString());
+                    OrginizationModel orginizationModel = await response.Content.ReadAsAsync<OrginizationModel>();
+                    var model = JsonConvert.DeserializeObject<OrginizationModel>(JsonConvert.SerializeObject(orginizationModel));
+                    return orginizationModel;
+                    /*var result = await response.Content.ReadAsStringAsync();
+                    var model = JsonConvert.DeserializeObject<OrginizationModel>(URL);
                     Console.WriteLine(result);
-                    return result;
+                    */
                 }
                 else
                 {
+                    Console.WriteLine("{0} ({1})", (int)response.StatusCode, response.ReasonPhrase);
                     Console.WriteLine(response.StatusCode);
                     return null;
                 }

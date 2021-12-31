@@ -1,111 +1,173 @@
-namespace asp.net.Models
-{
+    using System.Text.Json.Serialization;
+    namespace asp.net.Models {
+    
     public class OrginizationModel
     {
-        public class Self
-        {
-            public string href { get; set; }
-        }
+        // Root myDeserializedClass = JsonSerializer.Deserialize<Root>(myJsonResponse);
+    public class Self
+    {
+        [JsonPropertyName("href")]
+        public string Href;
+    }
 
-        public class Links
-        {
-            public Self self { get; set; }
-            public First first { get; set; }
-            public Next next { get; set; }
-            public Last last { get; set; }
-        }
+    public class Links
+    {
+        [JsonPropertyName("self")]
+        public Self Self;
+    }
 
-        public class Organisasjonsform
-        {
-            public string kode { get; set; }
-            public string beskrivelse { get; set; }
-            public Links _links { get; set; }
-        }
+    public class Organisasjonsform
+    {
+        [JsonPropertyName("kode")]
+        public string Kode;
 
-        public class Naeringskode1
-        {
-            public string beskrivelse { get; set; }
-            public string kode { get; set; }
-        }
+        [JsonPropertyName("beskrivelse")]
+        public string Beskrivelse;
 
-        public class Forretningsadresse
-        {
-            public string land { get; set; }
-            public string landkode { get; set; }
-            public string postnummer { get; set; }
-            public string poststed { get; set; }
-            public List<string> adresse { get; set; }
-            public string kommune { get; set; }
-            public string kommunenummer { get; set; }
-        }
+        [JsonPropertyName("_links")]
+        public Links Links;
+    }
 
-        public class InstitusjonellSektorkode
-        {
-            public string kode { get; set; }
-            public string beskrivelse { get; set; }
-        }
+    public class Naeringskode1
+    {
+        [JsonPropertyName("beskrivelse")]
+        public string Beskrivelse;
 
-        public class Enheter
-        {
-            public string organisasjonsnummer { get; set; }
-            public string navn { get; set; }
-            public Organisasjonsform organisasjonsform { get; set; }
-            public string hjemmeside { get; set; }
-            public string registreringsdatoEnhetsregisteret { get; set; }
-            public bool registrertIMvaregisteret { get; set; }
-            public List<string> frivilligMvaRegistrertBeskrivelser { get; set; }
-            public Naeringskode1 naeringskode1 { get; set; }
-            public int antallAnsatte { get; set; }
-            public Forretningsadresse forretningsadresse { get; set; }
-            public string stiftelsesdato { get; set; }
-            public InstitusjonellSektorkode institusjonellSektorkode { get; set; }
-            public bool registrertIForetaksregisteret { get; set; }
-            public bool registrertIStiftelsesregisteret { get; set; }
-            public bool registrertIFrivillighetsregisteret { get; set; }
-            public string sisteInnsendteAarsregnskap { get; set; }
-            public bool konkurs { get; set; }
-            public bool underAvvikling { get; set; }
-            public bool underTvangsavviklingEllerTvangsopplosning { get; set; }
-            public string maalform { get; set; }
-            public Links _links { get; set; }
-        }
+        [JsonPropertyName("kode")]
+        public string Kode;
+    }
 
-        public class Embedded
-        {
-            public List<Enheter> enheter { get; set; }
-        }
+    public class Forretningsadresse
+    {
+        [JsonPropertyName("land")]
+        public string Land;
 
-        public class First
-        {
-            public string href { get; set; }
-        }
+        [JsonPropertyName("landkode")]
+        public string Landkode;
 
-        public class Next
-        {
-            public string href { get; set; }
-        }
+        [JsonPropertyName("postnummer")]
+        public string Postnummer;
 
-        public class Last
-        {
-            public string href { get; set; }
-        }
+        [JsonPropertyName("poststed")]
+        public string Poststed;
 
-        public class Page
-        {
-            public int size { get; set; }
-            public int totalElements { get; set; }
-            public int totalPages { get; set; }
-            public int number { get; set; }
-        }
+        [JsonPropertyName("adresse")]
+        public List<string> Adresse;
 
-        public class Root
-        {
-            public Embedded _embedded { get; set; }
-            public Links _links { get; set; }
-            public Page page { get; set; }
-        }
+        [JsonPropertyName("kommune")]
+        public string Kommune;
 
+        [JsonPropertyName("kommunenummer")]
+        public string Kommunenummer;
+    }
 
-    } 
+    public class InstitusjonellSektorkode
+    {
+        [JsonPropertyName("kode")]
+        public string Kode;
+
+        [JsonPropertyName("beskrivelse")]
+        public string Beskrivelse;
+    }
+
+    public class Enheter
+    {
+        [JsonPropertyName("organisasjonsnummer")]
+        public string Organisasjonsnummer;
+
+        [JsonPropertyName("navn")]
+        public string Navn;
+
+        [JsonPropertyName("organisasjonsform")]
+        public Organisasjonsform Organisasjonsform;
+
+        [JsonPropertyName("hjemmeside")]
+        public string Hjemmeside;
+
+        [JsonPropertyName("registreringsdatoEnhetsregisteret")]
+        public string RegistreringsdatoEnhetsregisteret;
+
+        [JsonPropertyName("registrertIMvaregisteret")]
+        public bool RegistrertIMvaregisteret;
+
+        [JsonPropertyName("frivilligMvaRegistrertBeskrivelser")]
+        public List<string> FrivilligMvaRegistrertBeskrivelser;
+
+        [JsonPropertyName("naeringskode1")]
+        public Naeringskode1 Naeringskode1;
+
+        [JsonPropertyName("antallAnsatte")]
+        public int AntallAnsatte;
+
+        [JsonPropertyName("forretningsadresse")]
+        public Forretningsadresse Forretningsadresse;
+
+        [JsonPropertyName("stiftelsesdato")]
+        public string Stiftelsesdato;
+
+        [JsonPropertyName("institusjonellSektorkode")]
+        public InstitusjonellSektorkode InstitusjonellSektorkode;
+
+        [JsonPropertyName("registrertIForetaksregisteret")]
+        public bool RegistrertIForetaksregisteret;
+
+        [JsonPropertyName("registrertIStiftelsesregisteret")]
+        public bool RegistrertIStiftelsesregisteret;
+
+        [JsonPropertyName("registrertIFrivillighetsregisteret")]
+        public bool RegistrertIFrivillighetsregisteret;
+
+        [JsonPropertyName("sisteInnsendteAarsregnskap")]
+        public string SisteInnsendteAarsregnskap;
+
+        [JsonPropertyName("konkurs")]
+        public bool Konkurs;
+
+        [JsonPropertyName("underAvvikling")]
+        public bool UnderAvvikling;
+
+        [JsonPropertyName("underTvangsavviklingEllerTvangsopplosning")]
+        public bool UnderTvangsavviklingEllerTvangsopplosning;
+
+        [JsonPropertyName("maalform")]
+        public string Maalform;
+
+        [JsonPropertyName("_links")]
+        public Links Links;
+    }
+
+    public class Embedded
+    {
+        [JsonPropertyName("enheter")]
+        public List<Enheter> Enheter;
+    }
+
+    public class Page
+    {
+        [JsonPropertyName("size")]
+        public int Size;
+
+        [JsonPropertyName("totalElements")]
+        public int TotalElements;
+
+        [JsonPropertyName("totalPages")]
+        public int TotalPages;
+
+        [JsonPropertyName("number")]
+        public int Number;
+    }
+
+    public class Root
+    {
+        [JsonPropertyName("_embedded")]
+        public Embedded Embedded;
+
+        [JsonPropertyName("_links")]
+        public Links Links;
+
+        [JsonPropertyName("page")]
+        public Page Page;
+    }
 }
-    
+}
+

@@ -6,7 +6,7 @@ CREATE TABLE overview (
     id int(11) NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     org_size VARCHAR(255) NOT NULL,
-    org_postalcode VARCHAR(255) NOT NULL,
+    org_zip VARCHAR(255) NOT NULL,
     org_address VARCHAR(255) NOT NULL,
     org_city VARCHAR(255) NOT NULL,
     org_phone VARCHAR(255) NOT NULL,

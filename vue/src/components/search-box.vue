@@ -1,9 +1,9 @@
 <template>
   <div class="search-box flex items-center">
-    <div class="pt-2 relative mx-auto text-gray-800">
+    <div class="pt-2 relative mx-auto text-gray-700">
       <input
         class="
-          border-2 border-gray-800
+          border-2 border-gray-700
           bg-white
           h-10
           px-5

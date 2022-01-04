@@ -38,4 +38,15 @@ h1 {
   font-family: 'Indie Flower', cursive;
   margin-top: 60px;
 }
+h2, h3, h4, h5 {
+  font-family: 'Indie Flower', cursive;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
 </style>

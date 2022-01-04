@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>424688513186-u9q533qtkmk9plq6up2jlf3p9jiid9do.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.424688513186-u9q533qtkmk9plq6up2jlf3p9jiid9do</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBycVSNeIUokDrGhQe3_oimyAYdFowO2cI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>424688513186</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.logmein.rescue.unattended</string>
+	<key>PROJECT_ID</key>
+	<string>rescue-7</string>
+	<key>STORAGE_BUCKET</key>
+	<string>rescue-7.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:424688513186:ios:4036cf8c16710e0158e7fb</string>
+	<key>DATABASE_URL</key>
+	<string>https://rescue-7.firebaseio.com</string>
+</dict>
+</plist>

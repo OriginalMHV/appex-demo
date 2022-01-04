@@ -1,11 +1,13 @@
 <script>
 import SearchBox from './components/search-box.vue'
+import TitleHeader from './components/title-header.vue'
 import BodyForm from './components/body-form.vue'
 
 export default {
-  components: {BodyForm, SearchBox},
+  components: {TitleHeader, BodyForm, SearchBox},
   name: 'App',
   component: {
+    TitleHeader,
     BodyForm,
     SearchBox
   }
@@ -13,11 +15,11 @@ export default {
 </script>
 <template>
   <div id="app">
-    <header></header>
+    <title-header></title-header>
       <search-box><form>
-        <input type="text" v-model="search" @keyup.enter="searchFor" placeholder="Search {org nr, name...}">
         </form></search-box>
-        <body-form :org="org" :search="search"></body-form>
+        <body-form>
+        </body-form>
     <router-view/>
   </div>
 </template>
@@ -27,8 +29,13 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  margin-top: 30px;
   color: #2c3e50;
+}
+
+h1 {
+  font-size: 3rem;
+  font-family: 'Indie Flower', cursive;
   margin-top: 60px;
 }
 </style>

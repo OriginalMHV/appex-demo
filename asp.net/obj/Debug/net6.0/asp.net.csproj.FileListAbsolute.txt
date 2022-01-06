@@ -28,3 +28,12 @@
 /Users/michaelherlandvalen/appex-demo/asp.net/obj/Debug/net6.0/asp.net.genruntimeconfig.cache
 /Users/michaelherlandvalen/appex-demo/asp.net/bin/Debug/net6.0/System.Net.Http.Formatting.dll
 /Users/michaelherlandvalen/appex-demo/asp.net/bin/Debug/net6.0/Newtonsoft.Json.Bson.dll
+/Users/michaelherlandvalen/appex-demo/asp.net/bin/Debug/net6.0/System.Web.Mvc.dll
+/Users/michaelherlandvalen/appex-demo/asp.net/bin/Debug/net6.0/System.Web.Razor.dll
+/Users/michaelherlandvalen/appex-demo/asp.net/bin/Debug/net6.0/System.Web.Helpers.dll
+/Users/michaelherlandvalen/appex-demo/asp.net/bin/Debug/net6.0/System.Web.WebPages.Deployment.dll
+/Users/michaelherlandvalen/appex-demo/asp.net/bin/Debug/net6.0/System.Web.WebPages.Razor.dll
+/Users/michaelherlandvalen/appex-demo/asp.net/bin/Debug/net6.0/System.Web.WebPages.dll
+/Users/michaelherlandvalen/appex-demo/asp.net/bin/Debug/net6.0/Microsoft.Web.Infrastructure.dll
+/Users/michaelherlandvalen/appex-demo/asp.net/bin/Debug/net6.0/System.Text.Json.dll
+/Users/michaelherlandvalen/appex-demo/asp.net/bin/Debug/net6.0/Vse.Web.Serialization.dll

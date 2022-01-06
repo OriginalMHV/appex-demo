@@ -1,8 +1,9 @@
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 
 namespace asp.net.Models
@@ -23,9 +24,11 @@ namespace asp.net.Models
             {
                 if (response.IsSuccessStatusCode)
                 {
-                    OrginizationModel orginizationModel = response.Content.ReadAsAsync<OrginizationModel>().Result;
-                    var model = JsonConvert.DeserializeObject<OrginizationModel>(JsonConvert.SerializeObject(orginizationModel));
-                    return Task.FromResult(model);
+
+                    var resultFromResponse = response.Content.ReadAsAsync<OrginizationModel>().Result;
+                    var jsonDeserializedObject = JsonSerializer.Deserialize<OrginizationModel>(resultFromResponse.ToString());
+                    // Deserialize the Object from OrginizationModel
+                    return Task.FromResult(jsonDeserializedObject);
                 }
                 else
                 {
@@ -35,31 +38,33 @@ namespace asp.net.Models
                 }
             }
         }
-            public Task<OrginizationModel> GetModelOverview(string name)
+        public Task<OrginizationModel> GetModelOverview(string name)
+        {
+            ApiHelper.InitizalizeClient();
+
+            string URL = "enheter?size=1&navn=" + name;
+
+            // get data from api
+            using (HttpResponseMessage response = ApiHelper.ApiClient.GetAsync(URL).Result)
             {
-                ApiHelper.InitizalizeClient();
-
-                string URL = "enheter?size=1&navn=" + name;
-
-                // get data from api
-                using (HttpResponseMessage response = ApiHelper.ApiClient.GetAsync(URL).Result)
+                if (response.IsSuccessStatusCode)
                 {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        OrginizationModel orginizationModel = response.Content.ReadAsAsync<OrginizationModel>().Result;
-                        var model = JsonConvert.DeserializeObject<OrginizationModel>(JsonConvert.SerializeObject(orginizationModel));
-                        return Task.FromResult(model);
-                    }
-                    else
-                    {
-                        Console.WriteLine("{0} ({1})", (int)response.StatusCode, response.ReasonPhrase);
-                        Console.WriteLine(response.StatusCode);
-                        return null;
-                    }
+
+                    var resultFromResponse = response.Content.ReadAsAsync<OrginizationModel>().Result;
+                    var jsonDeserializedObject = JsonSerializer.Deserialize<OrginizationModel>(resultFromResponse.ToString());
+                    // Deserialize the Object from OrginizationModel
+                    return Task.FromResult(jsonDeserializedObject);
+                }
+                else
+                {
+                    Console.WriteLine("{0} ({1})", (int)response.StatusCode, response.ReasonPhrase);
+                    Console.WriteLine(response.StatusCode);
+                    return null;
                 }
             }
         }
     }
+}
 
 // Language: csharp
 // Path: asp.net/Models/OrginizationModel.cs

@@ -1,4 +1,3 @@
-    using System.Text.Json.Serialization;
     namespace asp.net.Models {
     
     public class OrginizationModel
@@ -43,7 +42,7 @@
         public string Beskrivelse { get; set; }
     }
 
-    public class Enheter
+    public class RootObject
     {
         public string Organisasjonsnummer { get; set; }
         public string Navn { get; set; }
@@ -70,7 +69,7 @@
 
     public class Embedded
     {
-        public List<Enheter> Enheter { get; set; }
+        public List<RootObject> Enheter { get; set; }
     }
 
     public class Page

@@ -16,12 +16,13 @@ public class HomeController : Controller
         {
             ModelOverview modelOverview = new ModelOverview();
             var orginizationModel = modelOverview.GetModelOverview(995412020);
-            // get the ModelOveriew Task Result
-            var model = orginizationModel.Result;
-            // Viewdata of model
             
+            // get the ModelOveriew Task Result
+            var model = orginizationModel.Result;          
+            
+            // Viewdata of model
 
-            return View();
+            return View(model);
         }
 }
 

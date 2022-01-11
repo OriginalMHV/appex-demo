@@ -41,7 +41,7 @@
         public string Kode { get; set; }
         public string Beskrivelse { get; set; }
     }
-
+/*
     public class RootObject
     {
         public string Organisasjonsnummer { get; set; }
@@ -66,11 +66,14 @@
         public string Maalform { get; set; }
         public Links Links { get; set; }
     }
+*/
+/*
 
     public class Embedded
     {
         public List<RootObject> Enheter { get; set; }
     }
+    */
 
     public class Page
     {
@@ -82,7 +85,7 @@
 
     public class Root
     {
-        public Embedded Embedded { get; set; }
+        //public Embedded Embedded { get; set; }
         public Links Links { get; set; }
         public Page Page { get; set; }
     }

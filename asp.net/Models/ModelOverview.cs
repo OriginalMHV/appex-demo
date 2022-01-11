@@ -18,17 +18,16 @@ namespace asp.net.Models
 
 
             string URL = "enheter?size=1&organisasjonsnummer=" + orgNumber;
-
+            
             // get data from api
             using (HttpResponseMessage response = ApiHelper.ApiClient.GetAsync(URL).Result)
             {
                 if (response.IsSuccessStatusCode)
                 {
-
-                    var resultFromResponse = response.Content.ReadAsAsync<OrginizationModel>().Result;
-                    var jsonDeserializedObject = JsonSerializer.Deserialize<OrginizationModel>(resultFromResponse.ToString());
-                    // Deserialize the Object from OrginizationModel
-                    return Task.FromResult(jsonDeserializedObject);
+                    var result = response.Content.ReadFromJsonAsync<Task<OrginizationModel>>();
+                    var jsonString = JsonSerializer.Serialize(result);
+                    var model = result.Result;
+                    return model.;
                 }
                 else
                 {
@@ -49,11 +48,16 @@ namespace asp.net.Models
             {
                 if (response.IsSuccessStatusCode)
                 {
-
                     var resultFromResponse = response.Content.ReadAsAsync<OrginizationModel>().Result;
-                    var jsonDeserializedObject = JsonSerializer.Deserialize<OrginizationModel>(resultFromResponse.ToString());
+                    var jsonString = response.Content.ReadAsStringAsync();
+                    jsonString.Wait();
+                    var jsonResult = JsonSerializer.Deserialize<OrginizationModel>(jsonString.Result);
+                    System.Console.WriteLine(jsonResult);
+                    return Task.FromResult(jsonResult);
+                    //var resultFromResponse = response.Content.ReadAsAsync<OrginizationModel>().Result;
+                    //var jsonString = JsonSerializer.Deserialize<OrginizationModel>(resultFromResponse.ToString());
                     // Deserialize the Object from OrginizationModel
-                    return Task.FromResult(jsonDeserializedObject);
+                    //return Task.FromResult(jsonString);
                 }
                 else
                 {

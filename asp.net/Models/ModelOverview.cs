@@ -19,7 +19,7 @@ namespace asp.net.Models
             {
                 if (response.IsSuccessStatusCode)
                 {
-                    RootObjectResults rootObject = await response.Content.ReadAsAsync<RootObjectResults>();
+                    var rootObject = await response.Content.ReadAsAsync<RootObjectResults>();
                     return rootObject;
                 }
                 else

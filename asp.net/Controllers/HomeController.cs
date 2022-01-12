@@ -12,7 +12,9 @@ public class HomeController : Controller
 {
     public ActionResult Index()
         {
-            
+            ModelOverview modelOverview = new ModelOverview();
+            RootObjectModel rootObject = modelOverview.GetModelOverview("Appex").Result;
+            return View(modelOverview);
         }
 }
 

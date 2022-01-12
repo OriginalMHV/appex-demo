@@ -1,4 +1,4 @@
-    namespace asp.net.Models {
+ namespace asp.net.Models {
     
     public class OrginizationModel
     {

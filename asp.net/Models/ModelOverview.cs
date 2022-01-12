@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text;
 using System.Text.Json;
-using asp.net.Models;
-
-
 namespace asp.net.Models
 {
     public class ModelOverview
     {
-        public async Task<RootObjectResults> GetModelOverview(int orgNumber)
+        public async Task<OrginizationModel> getModelOverview(int orgNumber)
         {
             ApiHelper.InitizalizeClient();
             string URL = "enheter?size=1&organisasjonsnummer=" + orgNumber;
@@ -19,8 +16,8 @@ namespace asp.net.Models
             {
                 if (response.IsSuccessStatusCode)
                 {
-                    var rootObject = await response.Content.ReadAsAsync<RootObjectResults>();
-                    return rootObject;
+                    OrginizationModelResult orginizationNumberModel = await response.Content.ReadAsAsync<OrginizationModelResult>();
+                    return orginizationNumberModel.Results;
                 }
                 else
                 {
@@ -29,7 +26,7 @@ namespace asp.net.Models
                 }
             }
         }
-        public async Task<RootObjectModel> GetModelOverview(string name)
+        public async Task<OrginizationModel> getModelOverview(string name)
         {
             ApiHelper.InitizalizeClient();
             string URL = "enheter?size=1&navn=" + name;
@@ -38,8 +35,8 @@ namespace asp.net.Models
             {
                 if (response.IsSuccessStatusCode)
                 {
-                    RootObjectModel rootObject = await response.Content.ReadAsAsync<RootObjectModel>();
-                    return rootObject;
+                    OrginizationModelResult orginizationNameModel = await response.Content.ReadAsAsync<OrginizationModelResult>();
+                    return orginizationNameModel.Results;
                 }
                 else
                 {
